@@ -23,52 +23,34 @@ The name **menedpy** comes from **MÉ**todos **N**uméricos para **EDP** (Numeri
 
 ### From source
 
-Clone the repository and enter the project directory:
+1. Clone the repository and enter the project directory:
 
-```bash
-git clone https://github.com/pedropasa03/menedpy
-cd menedpy
-```
+    ```bash
+    git clone https://github.com/pedropasa03/menedpy
+    cd menedpy
+    ```
 
-Create a virtual environment:
+ 2. Create a virtual environment and activate it:
+    
+    ```bash
+    python -m venv .venv
+    .\.venv\Scripts\activate
+    ```
 
-```bash
-python -m venv .venv
-```
+5. Install the required build tools and build the package:
 
-Activate the virtual environment.
+    ```bash
+    python -m pip install --upgrade pip setuptools build
+    python -m build
+    ```
 
-On Windows:
+    This will generate the distribution files inside the `dist/` directory.
 
-```bash
-.\.venv\Scripts\activate
-```
+6. To install the generated package into the virtual environment:
 
-On Linux/macOS:
-
-```bash
-source .venv/bin/activate
-```
-
-Install the required build tools:
-
-```bash
-python -m pip install --upgrade pip setuptools build
-```
-
-Build the package:
-
-```bash
-python -m build
-```
-
-This will generate the distribution files inside the `dist/` directory.
-
-To install the generated package into the virtual environment:
-
-```bash
-python -m pip install dist/*.whl
-```
+    ```bash
+    python -m pip install dist/*.whl
+    ```
 
 ## Usage
 
