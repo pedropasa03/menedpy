@@ -4,12 +4,7 @@
 
 The library is designed to solve PDEs with the following structure:
 
-$$
-\partial_t u(x,y,t)
-- \nabla \cdot \left(\alpha(x,y)\nabla u(x,y,t)\right)
-+ u(x,y,t)^2
-= f(x,y,t),
-$$
+$$\partial_t u(x,y,t) - \nabla \cdot \left(\alpha(x,y)\nabla u(x,y,t)\right) + u(x,y,t)^2 = f(x,y,t),$$
 
 where:
 
