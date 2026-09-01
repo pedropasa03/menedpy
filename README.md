@@ -1,34 +1,104 @@
 # menedpy
 
-This repository contains a Python library suited for solving PDE's numerically
+**menedpy** is a Python library to compute the numerical solution of partial differential equations (PDEs) using the finite element method (FEM).
 
-## How Python modules work
+The library is designed to solve PDEs with the following structure:
 
-Python can only import `menedpy` if it can find the package on its import path.
-That usually happens in one of two ways:
+$$
+\partial_t u(x,y,t)
+- \nabla \cdot \left(\alpha(x,y)\nabla u(x,y,t)\right)
++ u(x,y,t)^2
+= f(x,y,t),
+$$
 
-1. You install the package into your environment.
-2. You run a script from a folder that already contains the package.
+where:
 
-Because this project uses a `src/` layout, the code lives in `src/menedpy/`.
-That is a good practice, but it means a plain script like `examples/h.py` will not
-see the package automatically unless the package is installed first.
+* $\alpha(x,y)$ is the diffusion coefficient.
+* $f(x,y,t)$ is the source term.
+* $u(x,y,t)$ is the unknown solution.
 
-## Install
+The name **menedpy** comes from **MÉ**todos **N**uméricos para **EDP** (Numerical Methods for PDEs) and **PY**, referring to the Python programming language.
 
-From the project root:
+## Installation
+
+### Requirements
+
+* Python 3.x
+* Git
+
+### From source
+
+Clone the repository and enter the project directory:
 
 ```bash
-python -m pip install -e . --no-build-isolation
+git clone https://github.com/pedropasa03/menedpy
+cd menedpy
 ```
 
-That installs the package in editable mode, so changes in `src/menedpy/` are
-immediately visible without reinstalling.
+Create a virtual environment:
 
-## Example
-
-After installing, this works from anywhere:
-
-```python
-from menedpy.newton import newton_system
+```bash
+python -m venv .venv
 ```
+
+Activate the virtual environment.
+
+On Windows:
+
+```bash
+.\.venv\Scripts\activate
+```
+
+On Linux/macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Install the required build tools:
+
+```bash
+python -m pip install --upgrade pip setuptools build
+```
+
+Build the package:
+
+```bash
+python -m build
+```
+
+This will generate the distribution files inside the `dist/` directory.
+
+To install the generated package into the virtual environment:
+
+```bash
+python -m pip install dist/*.whl
+```
+
+## Usage
+
+An example of the library in use can be found in [`examples/main.py`](examples/main.py).
+
+On Windows, you can run the example with:
+
+```bash
+.\.venv\Scripts\python .\examples\main.py
+```
+
+You should see the computed results displayed on the screen, together with the following image:
+
+<img src="examples/solution.png" alt="Example solution" width="600"/>
+
+The example can be modified to experiment with different domains, parameters, and problem settings.
+
+## Documentation
+
+Documentation and detailed descriptions of the available classes, functions, and numerical methods are currently provided through the source code and examples.
+
+## Contributing
+
+Contributions, bug reports, and suggestions are welcome.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
