@@ -7,14 +7,16 @@ name = "menedpy"
 version = "0.1.0"
 description = "Contains various PDE solvers"
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.10.0"
 
 authors = [
   {name = "Pedro", email = "pedropasa2003@gmail.com"}
 ]
 
 dependencies = [
-  "numpy>=1.26"
+  "numpy>=2.5.2",
+  "scipy>=1.18.1",
+  "matplotlib>=3.11.1"
 ]
 
 [tool.setuptools]
